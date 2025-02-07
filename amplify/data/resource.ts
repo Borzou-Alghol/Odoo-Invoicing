@@ -11,8 +11,34 @@ const schema = a.schema({
     .model({
       content: a.string(),
     })
-    .authorization((allow) => [allow.publicApiKey()]),
+    .authorization((allow : any) => [allow.publicApiKey()]),
+
+    Post: a.customType({
+      title: a.string().required(),
+      content: a.string().required(),
+      author: a.string().required(),
+      createdAt: a.string().required(),
+      updatedAt: a.string().required(),
+    }),
+      
+  addPost: a
+  .mutation()
+  .arguments({
+    title: a.string(),
+    content: a.string(),
+    author: a.string().required(),
+  })
+  .returns(a.ref("Post"))
+  .authorization(allow => [allow.publicApiKey()])
+  .handler(
+    a.handler.custom({
+      dataSource: "HttpDataSource",
+      entry: "./addPost.js",
+    })
+  ),
 });
+
+
 
 export type Schema = ClientSchema<typeof schema>;
 
