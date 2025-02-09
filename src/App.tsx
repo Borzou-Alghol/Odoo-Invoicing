@@ -1,10 +1,10 @@
 // import { useEffect, useState } from "react";
-// import type { Schema } from "../amplify/data/resource";
-// import { generateClient } from "aws-amplify/data";
+import type { Schema } from "../amplify/data/resource";
+import { generateClient } from "aws-amplify/data";
 
-// const client = generateClient<Schema>();
+const client = generateClient<Schema>();
 
-function App() {
+ function App() {
   // const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
 
   // useEffect(() => {
@@ -16,6 +16,12 @@ function App() {
   // function createTodo() {
   //   client.models.Todo.create({ content: window.prompt("Todo content") });
   // }
+
+  const { } =  client.mutations.addPost({
+    title: "My Post",
+    content: "My Content",
+    author: "Chris",
+  });
 
   return (
     <main>
