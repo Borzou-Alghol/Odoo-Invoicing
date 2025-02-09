@@ -2,12 +2,20 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const Invoice = /* GraphQL */ `
-  mutation Invoice($invoice_date: String!, $move_type: String, $name: String) {
-    Invoice(invoice_date: $invoice_date, move_type: $move_type, name: $name) {
-      author
-      content
-      title
+export const addInvoice = /* GraphQL */ `
+  mutation AddInvoice(
+    $invoice_date: String!
+    $move_type: String
+    $name: String
+  ) {
+    addInvoice(
+      invoice_date: $invoice_date
+      move_type: $move_type
+      name: $name
+    ) {
+      invoice_date
+      move_type
+      name
       __typename
     }
   }

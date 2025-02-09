@@ -7,12 +7,6 @@ specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
-    .model({
-      content: a.string(),
-    })
-    .authorization((allow : any) => [allow.publicApiKey()]),
-
     Invoice: a.customType({
       name: a.string(),
       move_type: a.string(),
@@ -31,7 +25,7 @@ const schema = a.schema({
   .handler(
     a.handler.custom({
       dataSource: "HttpDataSource",
-      entry: "./addPost.js",
+      entry: "./addInvoice.js",
     })
   ),
 });

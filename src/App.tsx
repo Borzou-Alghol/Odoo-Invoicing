@@ -19,15 +19,26 @@ const client = generateClient<Schema>();
   //   client.models.Todo.create({ content: window.prompt("Todo content") });
   // }
 
-  const { } =  client.mutations.addInvoice({
+console.log(">" + JSON.stringify(client)); 
+console.log(">>" + JSON.stringify(client.mutations));
+console.log(">>>" + client.mutations.addInvoice);
+  
+  // client.mutations.addInvoice({
+  //    name: "Invoice Name",
+  //    move_type: "Invoice Content",
+  //    invoice_date: "1/1/2000",
+  //  });
+
+  client.mutations.addInvoice({
     name: "Invoice Name",
     move_type: "Invoice Content",
-    invoice_date: "1/1/2000",
+    invoice_date: "2025-02-09",
   });
-
   
-      return (
-      <main>
+   
+
+      return (      
+   <main>
       <h1>Invoices</h1>
       <TodoCreateForm />;
       </main>
