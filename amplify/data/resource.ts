@@ -14,11 +14,9 @@ const schema = a.schema({
     .authorization((allow : any) => [allow.publicApiKey()]),
 
     Post: a.customType({
-      title: a.string().required(),
-      content: a.string().required(),
+      title: a.string(),
+      content: a.string(),
       author: a.string().required(),
-      createdAt: a.string().required(),
-      updatedAt: a.string().required(),
     }),
       
   addPost: a
