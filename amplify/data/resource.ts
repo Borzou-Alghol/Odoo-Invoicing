@@ -19,12 +19,12 @@ const schema = a.schema({
       author: a.string().required(),
     }),
       
-  addPost: a
+  Invoice: a
   .mutation()
   .arguments({
-    title: a.string(),
-    content: a.string(),
-    author: a.string().required(),
+    name: a.string(),
+    move_type: a.string(),
+    invoice_date: a.string().required(),
   })
   .returns(a.ref("Post"))
   .authorization(allow => [allow.publicApiKey()])

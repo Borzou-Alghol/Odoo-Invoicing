@@ -17,10 +17,10 @@ const client = generateClient<Schema>();
   //   client.models.Todo.create({ content: window.prompt("Todo content") });
   // }
 
-  const { } =  client.mutations.addPost({
-    title: "My Post",
-    content: "My Content",
-    author: "Chris",
+  const { } =  client.mutations.Invoice({
+    name: "My Post",
+    move_type: "My Content",
+    invoice_date: "Chris",
   });
 
   return (

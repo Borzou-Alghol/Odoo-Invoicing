@@ -9,9 +9,9 @@ export function request(ctx) {
         "Content-Type": "application/json",
       },
       body: {
-        title: ctx.arguments.title,
-        content: ctx.arguments.content,
-        author: ctx.arguments.author,
+        name: ctx.arguments.name,
+        move_type: ctx.arguments.move_type,
+        invoice_date: ctx.arguments.invoice_date,
       },
     },
   };
