@@ -13,20 +13,20 @@ const schema = a.schema({
     })
     .authorization((allow : any) => [allow.publicApiKey()]),
 
-    Post: a.customType({
-      title: a.string(),
-      content: a.string(),
-      author: a.string().required(),
+    Invoice: a.customType({
+      name: a.string(),
+      move_type: a.string(),
+      invoice_date: a.string().required(),
     }),
       
-  Invoice: a
+  addInvoice: a
   .mutation()
   .arguments({
     name: a.string(),
     move_type: a.string(),
     invoice_date: a.string().required(),
   })
-  .returns(a.ref("Post"))
+  .returns(a.ref("Invoice"))
   .authorization(allow => [allow.publicApiKey()])
   .handler(
     a.handler.custom({

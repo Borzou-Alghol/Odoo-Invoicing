@@ -3,7 +3,7 @@ import { util } from "@aws-appsync/utils";
 export function request(ctx) {
   return {
     method: "POST",
-    resourcePath: "/post",
+    resourcePath: "/account.move",
     params: {
       headers: {
         "Content-Type": "application/json",
