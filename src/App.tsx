@@ -22,11 +22,11 @@ function App() {
   console.log(">>" + JSON.stringify(client.mutations));
   console.log(">>>" + client.mutations.addInvoice);
 
-  // client.mutations.addInvoice({
-  //   name: "Invoice Name",
-  //   move_type: "Invoice Content",
-  //   invoice_date: "2025-02-09",
-  // });
+  client.mutations.addInvoice({
+    name: "Invoice Name",
+    move_type: "Invoice Content",
+    invoice_date: "2025-02-09",
+  });
 
   return (
     <main>
