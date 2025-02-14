@@ -1,7 +1,7 @@
 // import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
-import { TodoCreateForm } from "../ui-components";
+//import { TodoCreateForm } from "../ui-components";
 
 const client = generateClient<Schema>();
 
@@ -31,7 +31,7 @@ function App() {
   return (
     <main>
       <h1>Product Registry</h1>
-      <TodoCreateForm />;
+      {/* <TodoCreateForm />; */}
     </main>
   )
 
