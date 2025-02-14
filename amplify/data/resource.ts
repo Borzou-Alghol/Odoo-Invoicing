@@ -11,7 +11,6 @@ const schema = a.schema({
   Product: a
     .model({
       name: a.string(),
-      productId: a.id(),
       EAN: a.string().required(),
       nationalRefundLogo: a.string(),
       saRefundLogo: a.string(),
@@ -38,6 +37,7 @@ const schema = a.schema({
   Comment: a.model({
     author: a.string(),
     content: a.string(),
+    productId: a.id(),
     product: a.belongsTo('Product', 'productId'),
 
   })
