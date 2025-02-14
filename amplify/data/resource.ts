@@ -22,10 +22,6 @@ const schema = a.schema({
       weightGM: a.string(),
       productGroupOther: a.string(),
       glassColourOther: a.string(),
-      //CreatedBy: a.string(),
-      //CreatedOn: a.string(),
-      //LastModifiedBy: a.string(),
-      //LastModifiedOn: a.string(),
       multiSchemeId: a.string(),
       supplierParticipantId: a.string(),
       effectiveFrom: a.string(),
@@ -39,7 +35,6 @@ const schema = a.schema({
     content: a.string(),
     productId: a.id(),
     product: a.belongsTo('Product', 'productId'),
-
   })
     .authorization((allow: any) => [allow.publicApiKey()]),
 
