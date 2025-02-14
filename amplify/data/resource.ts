@@ -26,7 +26,7 @@ const schema = a.schema({
       supplierParticipantId: a.string(),
       effectiveFrom: a.string(),
       effectiveTo: a.string(),
-      comments: a.hasMany('Comment', 'productId')
+      //comments: a.hasMany('Comment', 'productId')
     })
     .authorization((allow: any) => [allow.publicApiKey()]),
 
@@ -34,7 +34,7 @@ const schema = a.schema({
     author: a.string(),
     content: a.string(),
     productId: a.id(),
-    product: a.belongsTo('Product', 'productId'),
+    //product: a.belongsTo('Product', 'productId'),
   })
     .authorization((allow: any) => [allow.publicApiKey()]),
 
