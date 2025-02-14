@@ -1,7 +1,9 @@
 // import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
-//import { TodoCreateForm } from "../ui-components";
+import { ProductCreateForm } from "./ui-components";
+import { ThemeProvider, Theme } from "@aws-amplify/ui-react";
+
 
 const client = generateClient<Schema>();
 
@@ -28,11 +30,28 @@ function App() {
   //   invoice_date: "2025-02-09",
   // });
 
+  const theme = {
+    name: 'my-theme',
+    tokens: {
+      colors: {
+        background: {
+          primary: { value: '#f0f0f0' }, // Set your desired background color
+        },
+        font: {
+          primary: { value: '#008080' },
+        },
+      },
+    },
+  };
+  
+
   return (
+    <ThemeProvider theme={theme}>    
     <main>
       <h1>Product Registry</h1>
-      {/* <TodoCreateForm />; */}
+      <ProductCreateForm />;
     </main>
+    </ThemeProvider>
   )
 
 }

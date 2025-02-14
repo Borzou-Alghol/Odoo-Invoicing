@@ -26,6 +26,7 @@ const schema = a.schema({
       supplierParticipantId: a.string(),
       effectiveFrom: a.string(),
       effectiveTo: a.string(),
+      status: a.string(),
       comments: a.hasMany('Comment', 'productId')
     })
     .authorization((allow: any) => [allow.publicApiKey()]),
