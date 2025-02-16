@@ -26,6 +26,7 @@ export const onCreateComment = /* GraphQL */ `
         petClour
         productGroupOther
         saRefundLogo
+        status
         supplierParticipantId
         updatedAt
         weightGM
@@ -60,6 +61,7 @@ export const onCreateProduct = /* GraphQL */ `
       petClour
       productGroupOther
       saRefundLogo
+      status
       supplierParticipantId
       updatedAt
       weightGM
@@ -91,6 +93,7 @@ export const onDeleteComment = /* GraphQL */ `
         petClour
         productGroupOther
         saRefundLogo
+        status
         supplierParticipantId
         updatedAt
         weightGM
@@ -125,6 +128,7 @@ export const onDeleteProduct = /* GraphQL */ `
       petClour
       productGroupOther
       saRefundLogo
+      status
       supplierParticipantId
       updatedAt
       weightGM
@@ -156,6 +160,7 @@ export const onUpdateComment = /* GraphQL */ `
         petClour
         productGroupOther
         saRefundLogo
+        status
         supplierParticipantId
         updatedAt
         weightGM
@@ -190,6 +195,7 @@ export const onUpdateProduct = /* GraphQL */ `
       petClour
       productGroupOther
       saRefundLogo
+      status
       supplierParticipantId
       updatedAt
       weightGM

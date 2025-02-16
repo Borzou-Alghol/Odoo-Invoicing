@@ -36,6 +36,7 @@ export default function ProductUpdateForm(props) {
     supplierParticipantId: "",
     effectiveFrom: "",
     effectiveTo: "",
+    status: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [EAN, setEAN] = React.useState(initialValues.EAN);
@@ -73,6 +74,7 @@ export default function ProductUpdateForm(props) {
   const [effectiveTo, setEffectiveTo] = React.useState(
     initialValues.effectiveTo
   );
+  const [status, setStatus] = React.useState(initialValues.status);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = productRecord
@@ -94,6 +96,7 @@ export default function ProductUpdateForm(props) {
     setSupplierParticipantId(cleanValues.supplierParticipantId);
     setEffectiveFrom(cleanValues.effectiveFrom);
     setEffectiveTo(cleanValues.effectiveTo);
+    setStatus(cleanValues.status);
     setErrors({});
   };
   const [productRecord, setProductRecord] = React.useState(productModelProp);
@@ -129,6 +132,7 @@ export default function ProductUpdateForm(props) {
     supplierParticipantId: [],
     effectiveFrom: [],
     effectiveTo: [],
+    status: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -172,6 +176,7 @@ export default function ProductUpdateForm(props) {
           supplierParticipantId: supplierParticipantId ?? null,
           effectiveFrom: effectiveFrom ?? null,
           effectiveTo: effectiveTo ?? null,
+          status: status ?? null,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -248,6 +253,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -287,6 +293,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.EAN ?? value;
@@ -326,6 +333,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.nationalRefundLogo ?? value;
@@ -367,6 +375,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.saRefundLogo ?? value;
@@ -406,6 +415,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.glassColour ?? value;
@@ -445,6 +455,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.petClour ?? value;
@@ -484,6 +495,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.designatedCapacityMl ?? value;
@@ -525,6 +537,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.heightMM ?? value;
@@ -564,6 +577,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.diameterMM ?? value;
@@ -603,6 +617,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.weightGM ?? value;
@@ -642,6 +657,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.productGroupOther ?? value;
@@ -683,6 +699,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.glassColourOther ?? value;
@@ -722,6 +739,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.multiSchemeId ?? value;
@@ -761,6 +779,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId: value,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.supplierParticipantId ?? value;
@@ -802,6 +821,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom: value,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.effectiveFrom ?? value;
@@ -841,6 +861,7 @@ export default function ProductUpdateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo: value,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.effectiveTo ?? value;
@@ -854,6 +875,46 @@ export default function ProductUpdateForm(props) {
         errorMessage={errors.effectiveTo?.errorMessage}
         hasError={errors.effectiveTo?.hasError}
         {...getOverrideProps(overrides, "effectiveTo")}
+      ></TextField>
+      <TextField
+        label="Status"
+        isRequired={false}
+        isReadOnly={false}
+        value={status}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              EAN,
+              nationalRefundLogo,
+              saRefundLogo,
+              glassColour,
+              petClour,
+              designatedCapacityMl,
+              heightMM,
+              diameterMM,
+              weightGM,
+              productGroupOther,
+              glassColourOther,
+              multiSchemeId,
+              supplierParticipantId,
+              effectiveFrom,
+              effectiveTo,
+              status: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.status ?? value;
+          }
+          if (errors.status?.hasError) {
+            runValidationTasks("status", value);
+          }
+          setStatus(value);
+        }}
+        onBlur={() => runValidationTasks("status", status)}
+        errorMessage={errors.status?.errorMessage}
+        hasError={errors.status?.hasError}
+        {...getOverrideProps(overrides, "status")}
       ></TextField>
       <Flex
         justifyContent="space-between"

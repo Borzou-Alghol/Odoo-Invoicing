@@ -33,6 +33,7 @@ export declare type ProductUpdateFormInputValues = {
     supplierParticipantId?: string;
     effectiveFrom?: string;
     effectiveTo?: string;
+    status?: string;
 };
 export declare type ProductUpdateFormValidationValues = {
     name?: ValidationFunction<string>;
@@ -51,6 +52,7 @@ export declare type ProductUpdateFormValidationValues = {
     supplierParticipantId?: ValidationFunction<string>;
     effectiveFrom?: ValidationFunction<string>;
     effectiveTo?: ValidationFunction<string>;
+    status?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ProductUpdateFormOverridesProps = {
@@ -71,6 +73,7 @@ export declare type ProductUpdateFormOverridesProps = {
     supplierParticipantId?: PrimitiveOverrideProps<TextFieldProps>;
     effectiveFrom?: PrimitiveOverrideProps<TextFieldProps>;
     effectiveTo?: PrimitiveOverrideProps<TextFieldProps>;
+    status?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type ProductUpdateFormProps = React.PropsWithChildren<{
     overrides?: ProductUpdateFormOverridesProps | undefined | null;

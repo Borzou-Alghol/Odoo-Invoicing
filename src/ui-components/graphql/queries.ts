@@ -26,6 +26,7 @@ export const getComment = /* GraphQL */ `
         petClour
         productGroupOther
         saRefundLogo
+        status
         supplierParticipantId
         updatedAt
         weightGM
@@ -60,6 +61,7 @@ export const getProduct = /* GraphQL */ `
       petClour
       productGroupOther
       saRefundLogo
+      status
       supplierParticipantId
       updatedAt
       weightGM
@@ -112,6 +114,7 @@ export const listProducts = /* GraphQL */ `
         petClour
         productGroupOther
         saRefundLogo
+        status
         supplierParticipantId
         updatedAt
         weightGM

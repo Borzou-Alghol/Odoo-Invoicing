@@ -2,7 +2,7 @@
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
 import { ProductCreateForm } from "./ui-components";
-import { ThemeProvider, Theme } from "@aws-amplify/ui-react";
+import { ThemeProvider } from "@aws-amplify/ui-react";
 
 
 const client = generateClient<Schema>();
@@ -34,9 +34,6 @@ function App() {
     name: 'my-theme',
     tokens: {
       colors: {
-        background: {
-          primary: { value: '#f0f0f0' }, // Set your desired background color
-        },
         font: {
           primary: { value: '#008080' },
         },
@@ -49,7 +46,7 @@ function App() {
     <ThemeProvider theme={theme}>    
     <main>
       <h1>Product Registry</h1>
-      <ProductCreateForm />;
+      <ProductCreateForm />
     </main>
     </ThemeProvider>
   )

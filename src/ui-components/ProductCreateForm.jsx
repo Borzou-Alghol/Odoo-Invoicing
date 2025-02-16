@@ -5,6 +5,7 @@ import { Button, Flex, Grid, TextField } from "@aws-amplify/ui-react";
 import { fetchByPath, getOverrideProps, validateField } from "./utils";
 import { generateClient } from "aws-amplify/api";
 import { createProduct } from "./graphql/mutations";
+import { Row } from "aws-cdk-lib/aws-cloudwatch";
 const client = generateClient();
 export default function ProductCreateForm(props) {
   const {
@@ -34,6 +35,7 @@ export default function ProductCreateForm(props) {
     supplierParticipantId: "",
     effectiveFrom: "",
     effectiveTo: "",
+    status: "",
   };
   const [name, setName] = React.useState(initialValues.name);
   const [EAN, setEAN] = React.useState(initialValues.EAN);
@@ -71,6 +73,7 @@ export default function ProductCreateForm(props) {
   const [effectiveTo, setEffectiveTo] = React.useState(
     initialValues.effectiveTo
   );
+  const [status, setStatus] = React.useState(initialValues.status);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setName(initialValues.name);
@@ -89,6 +92,7 @@ export default function ProductCreateForm(props) {
     setSupplierParticipantId(initialValues.supplierParticipantId);
     setEffectiveFrom(initialValues.effectiveFrom);
     setEffectiveTo(initialValues.effectiveTo);
+    setStatus(initialValues.status);
     setErrors({});
   };
   const validations = {
@@ -108,6 +112,7 @@ export default function ProductCreateForm(props) {
     supplierParticipantId: [],
     effectiveFrom: [],
     effectiveTo: [],
+    status: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -129,9 +134,9 @@ export default function ProductCreateForm(props) {
   return (
     <Grid
       as="form"
-      rowGap="15px"
+      rowGap="5px"
       columnGap="15px"
-      padding="20px"
+      padding="medium"
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
@@ -151,6 +156,7 @@ export default function ProductCreateForm(props) {
           supplierParticipantId,
           effectiveFrom,
           effectiveTo,
+          status,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -204,6 +210,7 @@ export default function ProductCreateForm(props) {
       {...getOverrideProps(overrides, "ProductCreateForm")}
       {...rest}
     >
+      
       <TextField
         label="Name"
         isRequired={false}
@@ -229,6 +236,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.name ?? value;
@@ -243,6 +251,7 @@ export default function ProductCreateForm(props) {
         hasError={errors.name?.hasError}
         {...getOverrideProps(overrides, "name")}
       ></TextField>
+      
       <TextField
         label="Ean"
         isRequired={true}
@@ -268,6 +277,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.EAN ?? value;
@@ -307,6 +317,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.nationalRefundLogo ?? value;
@@ -348,6 +359,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.saRefundLogo ?? value;
@@ -387,6 +399,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.glassColour ?? value;
@@ -426,6 +439,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.petClour ?? value;
@@ -465,6 +479,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.designatedCapacityMl ?? value;
@@ -506,6 +521,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.heightMM ?? value;
@@ -545,6 +561,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.diameterMM ?? value;
@@ -584,6 +601,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.weightGM ?? value;
@@ -623,6 +641,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.productGroupOther ?? value;
@@ -664,6 +683,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.glassColourOther ?? value;
@@ -703,6 +723,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.multiSchemeId ?? value;
@@ -742,6 +763,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId: value,
               effectiveFrom,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.supplierParticipantId ?? value;
@@ -783,6 +805,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom: value,
               effectiveTo,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.effectiveFrom ?? value;
@@ -822,6 +845,7 @@ export default function ProductCreateForm(props) {
               supplierParticipantId,
               effectiveFrom,
               effectiveTo: value,
+              status,
             };
             const result = onChange(modelFields);
             value = result?.effectiveTo ?? value;
@@ -835,6 +859,46 @@ export default function ProductCreateForm(props) {
         errorMessage={errors.effectiveTo?.errorMessage}
         hasError={errors.effectiveTo?.hasError}
         {...getOverrideProps(overrides, "effectiveTo")}
+      ></TextField>
+      <TextField
+        label="Status"
+        isRequired={false}
+        isReadOnly={false}
+        value={status}
+        onChange={(e) => {
+          let { value } = e.target;
+          if (onChange) {
+            const modelFields = {
+              name,
+              EAN,
+              nationalRefundLogo,
+              saRefundLogo,
+              glassColour,
+              petClour,
+              designatedCapacityMl,
+              heightMM,
+              diameterMM,
+              weightGM,
+              productGroupOther,
+              glassColourOther,
+              multiSchemeId,
+              supplierParticipantId,
+              effectiveFrom,
+              effectiveTo,
+              status: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.status ?? value;
+          }
+          if (errors.status?.hasError) {
+            runValidationTasks("status", value);
+          }
+          setStatus(value);
+        }}
+        onBlur={() => runValidationTasks("status", status)}
+        errorMessage={errors.status?.errorMessage}
+        hasError={errors.status?.hasError}
+        {...getOverrideProps(overrides, "status")}
       ></TextField>
       <Flex
         justifyContent="space-between"
